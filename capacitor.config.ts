@@ -11,6 +11,9 @@ const config: CapacitorConfig = {
     androidScheme: "https",
   },
   plugins: {
+    Haptics: {
+      // Force enable haptics
+    },
     SplashScreen: {
       launchShowDuration: 2000,
       launchFadeOutDuration: 300,
@@ -24,6 +27,7 @@ const config: CapacitorConfig = {
     LocalNotifications: {
       smallIcon: "ic_icon",
       iconColor: "#dac5a7",
+      backgroundColor: "#dac5a7",
     },
     StatusBar: {
       style: "default",
