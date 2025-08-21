@@ -22,7 +22,7 @@
 
 <div align="center">
   
-  ### Latest Release: v1.0.0-beta.1
+  ### Latest Release: v1.0.1
   
   [![Download APK](https://img.shields.io/badge/Download-APK-4CAF50?style=for-the-badge&logo=android&logoColor=white)](https://github.com/syedarhamraza/android-app/releases/download/v1.0.0-beta.1/syedarhamraza.portfolio.apk)
   
@@ -84,7 +84,7 @@ graph LR
 - Real-time deployment sync
 - Static asset optimization
 
-> **🚧 In Development**: GitHub stats integration and API-dependent features are currently being implemented.
+> **In Development**: GitHub stats integration and API-dependent features are currently being implemented.
 
 </td>
 </tr>
@@ -117,17 +117,17 @@ graph LR
 ### For APK Development Only
 
 ```bash
-# 1️⃣ Clone this repository
+# 1️ Clone this repository
 git clone https://github.com/syedarhamraza/android-app.git
 cd android-app
 
-# 2️⃣ Install mobile dependencies
+# 2️ Install mobile dependencies
 npm install
 
-# 3️⃣ Setup Capacitor (if not already configured)
+# 3️ Setup Capacitor (if not already configured)
 npx cap sync
 
-# 4️⃣ Open in Android Studio
+# 4️ Open in Android Studio
 npx cap open android
 ```
 
@@ -140,7 +140,7 @@ npx cap open android
 ### Build Steps
 1. **Open Android Studio**
 2. **Select your target device/emulator**
-3. **Click the Run button** ▶️
+3. **Click the Run button**
 4. **Install the generated APK**
 
 ## Usage
@@ -162,11 +162,11 @@ graph TD
 </div>
 
 ### Getting Started
-1. ** Install** the APK on your Android device
-2. ** Allow** notification permissions when prompted
-3. ** Explore** projects, skills, and achievements
-4. ** Enjoy** native mobile experience
-5. ** Works offline** with cached content
+1. **Install** the APK on your Android device
+2. **Allow** notification permissions when prompted
+3. **Explore** projects, skills, and achievements
+4. **Enjoy** native mobile experience
+5. **Works offline** with cached content
 
 > **Current Status**: GitHub stats and dynamic API features are in development and may not display live data yet.
 
