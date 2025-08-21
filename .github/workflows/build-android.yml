@@ -35,13 +35,17 @@ jobs:
       - name: Capacitor Sync
         run: npx cap sync android
 
-      # 6. Build the Debug APK using Gradle
+      # 6. Make gradlew executable
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
+
+      # 7. Build the Debug APK using Gradle
       - name: Build Debug APK
         run: |
           cd android
           ./gradlew assembleDebug
 
-      # 7. Upload the APK so you can download it
+      # 8. Upload the APK so you can download it
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
