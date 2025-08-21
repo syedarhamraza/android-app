@@ -2,29 +2,20 @@ name: Build Android APK
 
 on:
   push:
-    branches: 
-      - main
-  pull_request:
     branches:
       - main
-
-env:
-  # Cache key for Gradle dependencies
-  GRADLE_CACHE_KEY: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
 
 jobs:
   build-apk:
     runs-on: ubuntu-latest
-    
+
     steps:
-      # 1. Check out the repository code
-      - name: Checkout Repository
+      # 1. Check out the public repo's code (which now includes the new 'out' folder)
+      - name: Checkout Repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Fetch full history for proper versioning
 
       # 2. Set up Java (JDK) for Android builds
-      - name: Setup Java JDK
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -37,81 +28,27 @@ jobs:
           node-version: '22.x'
           cache: 'npm'
 
-      # 4. Cache Gradle dependencies for faster builds
-      - name: Cache Gradle Dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-            android/.gradle
-          key: ${{ env.GRADLE_CACHE_KEY }}
-          restore-keys: |
-            gradle-${{ runner.os }}-
-
-      # 5. Install Capacitor dependencies from package.json
-      - name: Install Node Dependencies
+      # 4. Install Capacitor dependencies from package.json
+      - name: Install Dependencies
         run: npm ci
 
-      # 6. Verify the 'out' folder exists (optional check)
-      - name: Verify Web Assets
-        run: |
-          if [ ! -d "out" ]; then
-            echo "Warning: 'out' folder not found. Make sure your web build step ran first."
-            exit 1
-          fi
-          echo "Web assets found in 'out' folder"
-
-      # 7. Sync the web assets ('out' folder) into the native Android project
+      # 5. Sync the web assets ('out' folder) into the native Android project
       - name: Capacitor Sync
         run: npx cap sync android
 
-      # 8. Make gradlew executable
-      - name: Make Gradlew Executable
+      # 6. Make gradlew executable
+      - name: Make gradlew executable
         run: chmod +x android/gradlew
 
-      # 9. Build the Debug APK using Gradle
+      # 7. Build the Debug APK using Gradle
       - name: Build Debug APK
-        working-directory: android
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
-
-      # 10. Build Release APK (optional, for production builds)
-      - name: Build Release APK
-        working-directory: android
-        run: ./gradlew assembleRelease --no-daemon --stacktrace
-        continue-on-error: true  # Allow to fail if signing is not configured
-
-      # 11. List generated APK files for debugging
-      - name: List APK Files
-        run: find android/app/build/outputs/apk -name "*.apk" -type f
-
-      # 12. Upload Debug APK artifact
-      - name: Upload Debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 30
-
-      # 13. Upload Release APK artifact (if it was built successfully)
-      - name: Upload Release APK
-        uses: actions/upload-artifact@v4
-        if: success()
-        with:
-          name: app-release-apk
-          path: android/app/build/outputs/apk/release/app-release-unsigned.apk
-          retention-days: 90
-        continue-on-error: true
-
-      # 14. Create a summary with download links
-      - name: Build Summary
         run: |
-          echo "## 📱 Android Build Results" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ **Debug APK**: Successfully built and uploaded as artifact" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 📥 Download Instructions:" >> $GITHUB_STEP_SUMMARY
-          echo "1. Go to the **Actions** tab in your repository" >> $GITHUB_STEP_SUMMARY
-          echo "2. Click on this workflow run" >> $GITHUB_STEP_SUMMARY
-          echo "3. Scroll down to **Artifacts** section" >> $GITHUB_STEP_SUMMARY
-          echo "4. Download the APK file(s)" >> $GITHUB_STEP_SUMMARY
+          cd android
+          ./gradlew assembleDebug
+
+      # 8. Upload the APK so you can download it
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug.apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
