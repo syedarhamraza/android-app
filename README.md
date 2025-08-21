@@ -1,10 +1,10 @@
-# 📱 Syed Arham Raza - Portfolio Mobile App
+# Syed Arham Raza - Portfolio Mobile App
 
 <div align="center">
   
-  ![Portfolio App Banner](https://via.placeholder.com/800x200/4338ca/ffffff?text=Portfolio+Mobile+App)
+  ![Portfolio App Banner](/assets/banner.png)
   
-  [![Release](https://img.shields.io/github/v/release/syedarhamraza/android-app?style=for-the-badge&color=4338ca)](https://github.com/syedarhamraza/android-app/releases)
+  [![Release](https://img.shields.io/github/v/release/syedarhamraza/android-app?style=for-the-badge&color=dac5a7)](https://github.com/syedarhamraza/android-app/releases)
   [![License](https://img.shields.io/github/license/syedarhamraza/android-app?style=for-the-badge&color=06b6d4)](LICENSE)
   [![Stars](https://img.shields.io/github/stars/syedarhamraza/android-app?style=for-the-badge&color=f59e0b)](https://github.com/syedarhamraza/android-app/stargazers)
   [![Forks](https://img.shields.io/github/forks/syedarhamraza/android-app?style=for-the-badge&color=10b981)](https://github.com/syedarhamraza/android-app/network/members)
