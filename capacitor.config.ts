@@ -12,7 +12,6 @@ const config: CapacitorConfig = {
   plugins: {
     SplashScreen: {
       launchShowDuration: 2000,
-      launchAutoHide: true,
       launchFadeOutDuration: 300,
       backgroundColor: "#dac5a7",
       androidSplashResourceName: "splash",
@@ -22,7 +21,7 @@ const config: CapacitorConfig = {
       splashImmersive: true,
     },
     LocalNotifications: {
-      smallIcon: "ic_stat_icon",
+      smallIcon: "ic_icon",
       iconColor: "#dac5a7",
     },
     StatusBar: {
