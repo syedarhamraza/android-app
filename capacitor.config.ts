@@ -4,6 +4,7 @@ const config: CapacitorConfig = {
   appId: "com.syedarhamraza.portfolio",
   appName: "Syed Arham Raza",
   webDir: "out",
+
   server: {
     cleartext: true,
     allowNavigation: ["*"],
@@ -15,7 +16,7 @@ const config: CapacitorConfig = {
       launchFadeOutDuration: 300,
       backgroundColor: "#dac5a7",
       androidSplashResourceName: "splash",
-      androidScaleType: "CENTER_CROP",
+      androidScaleType: "CENTER",
       showSpinner: false,
       splashFullScreen: true,
       splashImmersive: true,
