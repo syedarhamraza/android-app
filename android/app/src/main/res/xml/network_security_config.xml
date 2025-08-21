@@ -2,15 +2,7 @@
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <!-- Add your API domains here -->
-
         <domain includeSubdomains="true">backend-portfolio-livid.vercel.app</domain>
     </domain-config>
 
-    <!-- For production, use HTTPS only -->
-    <domain-config>
-        <domain includeSubdomains="true">backend-portfolio-livid.vercel.app</domain>
-        <trust-anchors>
-            <certificates src="system"/>
-        </trust-anchors>
-    </domain-config>
 </network-security-config>
