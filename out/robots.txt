@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /coming-soon
+Sitemap: https://syedarhamraza-portfolio.vercel.app/sitemap.xml

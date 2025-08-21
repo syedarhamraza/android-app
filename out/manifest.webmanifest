@@ -1,0 +1,17 @@
+{
+  "name": "Syed Arham Raza",
+  "short_name": "Arham",
+  "start_url": "/",
+   "orientation": "portrait",
+  "icons": [
+      {
+        "src": "img.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ],
+  "theme_color": "#dac5a7",
+  "background_color": "#dac5a7",
+  "display": "standalone"
+}
