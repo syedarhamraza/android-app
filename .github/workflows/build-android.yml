@@ -1,0 +1,49 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Check out the public repo's code (which now includes the new 'out' folder)
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      # 2. Set up Java (JDK) for Android builds
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # 3. Set up Node.js for Capacitor CLI
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      # 4. Install Capacitor dependencies from package.json
+      - name: Install Dependencies
+        run: npm ci
+
+      # 5. Sync the web assets ('out' folder) into the native Android project
+      - name: Capacitor Sync
+        run: npx cap sync android
+
+      # 6. Build the Debug APK using Gradle
+      - name: Build Debug APK
+        run: |
+          cd android
+          ./gradlew assembleDebug
+
+      # 7. Upload the APK so you can download it
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug.apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
