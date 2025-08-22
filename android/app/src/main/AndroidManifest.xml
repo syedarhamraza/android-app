@@ -14,10 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-                android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation"
                 android:name=".MainActivity"
-                android:label="@string/title_activity_main"
-                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                android:theme="@style/AppTheme.Fullscreen"
                 android:launchMode="singleTask"
                 android:exported="true">
             <intent-filter>
@@ -25,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <provider
             android:name="androidx.core.content.FileProvider"
