@@ -33,11 +33,14 @@ const config: CapacitorConfig = {
       style: "default",
       backgroundColor: "#dac5a7",
     },
+    App: {
+      apiBaseURL: "https://backend-portfolio-livid.vercel.app",
+    }
   },
   android: {
     allowMixedContent: true,
     captureInput: true,
-    webContentsDebuggingEnabled: false, // Set to true for debugging
+    webContentsDebuggingEnabled: false,
   },
   ios: {
     contentInset: "automatic",
