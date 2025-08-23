@@ -24,9 +24,9 @@
 
 <div align="center">
   
-  ### Latest Release: v1.0.1
+  ### Latest Release: v1.0.4
   
-  [![Download APK](https://img.shields.io/badge/Download-APK-4CAF50?style=for-the-badge&logo=android&logoColor=white)](https://github.com/syedarhamraza/android-app/releases/download/v1.0.1/syedarhamraza.portfolio.v1.0.1.apk)
+  [![Download APK](https://img.shields.io/badge/Download-APK-4CAF50?style=for-the-badge&logo=android&logoColor=white)](https://github.com/syedarhamraza/android-app/releases/download/v1.0.4/syedarhamraza.portfolio.v1.0.4.apk)
   
   > **Beta Notice**: This is a beta release for testing. GitHub stats and API-dependent features are currently under development.
   
