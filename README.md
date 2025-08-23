@@ -5,18 +5,25 @@
   ![Portfolio App Banner](/assets/banner.png)
   
   [![Release](https://img.shields.io/github/v/release/syedarhamraza/android-app?style=for-the-badge&color=dac5a7)](https://github.com/syedarhamraza/android-app/releases)
+
+  [![Capacitor](https://capacitorjs.com/docs/logos/capacitor-text-docs-dark.png)](https://capacitorjs.com/)
   
   <h3>A sleek Android portfolio app showcasing projects, skills, and experience</h3>
   <p>Built with Next.js + Capacitor for native mobile performance</p>
+
+
   
   [Download APK](#-download) •
   [Features](#-features) •
   [Tech Stack](#-tech-stack) •
   [Installation](#-installation) •
+
+  
   
 </div>
 
 ---
+
 
 
 ## Download
